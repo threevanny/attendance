@@ -44,8 +44,9 @@ authCtrl.login = (req, res) => {
             if (err) return res.status(400).send(err)
             res.cookie('auth', user.token).json({
               isAuth: true,
-              id: user._id
-              , email: user.email
+              id: user._id,
+              email: user.email,
+              role: user.role
             })
           })
         })
@@ -59,7 +60,8 @@ authCtrl.goToProfile = (req, res) => {
     isAuth: true,
     id: req.user._id,
     email: req.user.email,
-    name: `${req.user.firstname} ${req.user.lastname}`
+    name: `${req.user.firstname} ${req.user.lastname}`,
+    role: req.user.role
   })
 }
 

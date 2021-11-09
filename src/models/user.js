@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const config = require('../config/config').get(process.env.NODE_ENV)
+const config = require('../config/db.config').get(process.env.NODE_ENV)
 
 const userSchema = mongoose.Schema({
   firstname: {
@@ -31,6 +31,9 @@ const userSchema = mongoose.Schema({
     minlength: 8
   },
   token: {
+    type: String
+  },
+  role: {
     type: String
   }
 })
