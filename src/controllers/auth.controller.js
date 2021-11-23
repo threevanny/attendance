@@ -17,7 +17,7 @@ authCtrl.register = (req, res) => {
         return res.status(400).json({ success: false })
       }
       res.status(200).json({
-        succes: true,
+        success: true,
         user: doc
       })
     })
@@ -45,6 +45,7 @@ authCtrl.login = (req, res) => {
             res.cookie('auth', user.token).json({
               isAuth: true,
               id: user._id,
+              token: user.token,
               email: user.email,
               role: user.role
             })
@@ -55,13 +56,13 @@ authCtrl.login = (req, res) => {
   })
 }
 
-authCtrl.goToProfile = (req, res) => {
-  res.json({
-    isAuth: true,
-    id: req.user._id,
-    email: req.user.email,
-    name: `${req.user.firstname} ${req.user.lastname}`,
-    role: req.user.role
+authCtrl.goToProfile = async (req, res) => {
+  console.log('yeah i am here')
+  const token = req.token || req.cookies.auth || req.body.token
+  console.log('profile:', token)
+  await User.findByToken(token, (err, docs) => {
+      if (err) console.error("Error getting user!", err)
+      else res.json(docs)
   })
 }
 
@@ -69,6 +70,22 @@ authCtrl.logout = (req, res) => {
   req.user.deleteToken(req.token, (err, user) => {
     if (err) return res.status(400).send(err)
     res.sendStatus(200)
+  })
+}
+
+authCtrl.getUsers = async (req, res)=> {
+  const limit = 15
+  await User.find({}, (err, docs) => {
+      if (err) console.error("Error getting users!", err)
+      else res.json(docs)
+  }).limit(limit)
+}
+
+authCtrl.getUser = async (req, res,) => {
+  const id = req.params.id
+  await User.findById(id, (err, docs) => {
+      if (err) console.error("Error getting user!", err)
+      else res.json(docs)
   })
 }
 

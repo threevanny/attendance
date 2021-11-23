@@ -1,8 +1,14 @@
 ###Testing endpoints usig VsCode REST Client extension
 @api = http://localhost:3000
 
+
+
 ### / 
-GET {{api}}
+
+GET {{api}}/api/users/
+
+###
+GET {{api}}/api/user/619bce3022772b30d0518336
 
 
 ### /register
@@ -27,8 +33,17 @@ Content-Type: application/json
   "password": "12345678"
 }
 
-###
-GET {{api}}/api/profile
+### /login
+POST {{api}}/api/login
+Content-Type: application/json
+
+{
+  "email": "robert.plant@attendance.com",
+  "password": "12345678"
+}
 
 ###
-GET {{api}}/api/logout
+POST {{api}}/api/profile
+
+###
+POST {{api}}/api/logout

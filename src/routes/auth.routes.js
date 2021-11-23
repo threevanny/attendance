@@ -6,12 +6,17 @@ const {
   register,
   login,
   goToProfile,
-  logout
+  logout,
+  getUsers,
+  getUser
 } = require('../controllers/auth.controller')
 
 router.post('/api/register', register)
 router.post('/api/login', login)
-router.get('/api/profile', auth, goToProfile)
-router.get('/api/logout', auth, logout)
+router.post('/api/profile', auth, goToProfile)
+router.post('/api/logout', auth, logout)
+router.get('/api/users', getUsers)
+router.get('/api/user/:id', getUser)
+
 
 module.exports = router
