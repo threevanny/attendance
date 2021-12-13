@@ -60,11 +60,11 @@ POST {{api}}/api/attendance/create
 Content-Type: application/json
 
 {
-  "author": "Rick Sanchez",
-  "idAuthor": "618ad9eb7fc7da0cbcb6c75d",
-  "subject": "Algebra: Vector and Matrix",
-  "students": "25",
-  "difficulties": "No internet connection"
+  "author": "Robert Plant",
+  "idAuthor": "619bcc81aba39633506b7acc",
+  "subject": "English: Verb conjugation",
+  "students": "34",
+  "difficulties": "Holiday"
 }
 
 ### 

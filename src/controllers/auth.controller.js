@@ -47,7 +47,8 @@ authCtrl.login = (req, res) => {
               id: user._id,
               token: user.token,
               email: user.email,
-              role: user.role
+              role: user.role,
+              name: user.firstname + ' ' + user.lastname
             })
           })
         })
@@ -69,6 +70,7 @@ authCtrl.goToProfile = async (req, res) => {
 authCtrl.logout = (req, res) => {
   req.user.deleteToken(req.token, (err, user) => {
     if (err) return res.status(400).send(err)
+    console.log(err)
     res.sendStatus(200)
   })
 }

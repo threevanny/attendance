@@ -22,7 +22,6 @@ const attendanceSchema = mongoose.Schema({
   },
   difficulties: {
     type: String,
-    required: true,
     maxlength: 500
   },
   date: {

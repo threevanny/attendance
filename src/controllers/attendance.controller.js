@@ -25,7 +25,6 @@ attendanceCtrl.getAttendanceById = async (req, res) => {
 
 // Add attendance
 attendanceCtrl.addAttendance = async (req, res) => {
-  console.log(req)
     const attendance = new Attendance(req.body)
     try {
         const savedAttendance = await attendance.save()
