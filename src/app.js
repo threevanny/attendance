@@ -5,6 +5,7 @@ const cors = require('cors')
 
 const indexRouter = require('./routes/index.routes')
 const authRouter = require('./routes/auth.routes')
+const attendanceRouter = require('./routes/attendance.routes')
 
 const app = express()
 
@@ -19,5 +20,6 @@ require('./database')
 //routes
 app.use(indexRouter)
 app.use(authRouter)
+app.use(attendanceRouter)
 
 module.exports =  app

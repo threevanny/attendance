@@ -1,9 +1,7 @@
 ###Testing endpoints usig VsCode REST Client extension
 @api = http://localhost:3000
 
-
-
-### / 
+### USER ENDPOINTS
 
 GET {{api}}/api/users/
 
@@ -47,3 +45,26 @@ POST {{api}}/api/profile
 
 ###
 POST {{api}}/api/logout
+
+
+### ATTENDANCE ENDPOINTS
+
+GET {{api}}/api/attendance/all
+
+###
+GET {{api}}/api/attendance/
+
+
+### Add Attendance
+POST {{api}}/api/attendance/create
+Content-Type: application/json
+
+{
+  "author": "Rick Sanchez",
+  "idAuthor": "618ad9eb7fc7da0cbcb6c75d",
+  "subject": "Algebra: Vector and Matrix",
+  "students": "25",
+  "difficulties": "No internet connection"
+}
+
+### 
