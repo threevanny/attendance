@@ -67,4 +67,41 @@ Content-Type: application/json
   "difficulties": "Holiday"
 }
 
-### 
+### PROGRAM ENDPOINTS
+
+###
+GET {{api}}/api/program/all
+
+###
+GET {{api}}/api/program/61b8f8a47ed7412710302ea0
+
+###
+POST {{api}}/api/program/create
+Content-Type: application/json
+
+{
+  "code": "2711",
+  "name": "Tecnologia es sistemas de información",
+  "coordinator": "Ana Rey",
+  "duration": "10"
+}
+
+### SUBJECT ENDPOINTS
+
+###
+GET {{api}}/api/subject/all
+
+###
+GET {{api}}/api/subject/61b8fa4a7ed7412710302ea1
+
+###
+POST {{api}}/api/subject/create
+Content-Type: application/json
+
+{
+  "teacher": "Robert Plant",
+  "name": "Técnicas de pruebas de software",
+  "code": "750105M",
+  "intensity": "4",
+  "program": "2711"
+}
