@@ -21,6 +21,9 @@ const subjectSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  schedule: {
+    type: String,
+  },
 },{
   timestamps: true,
   versionKey: false

@@ -23,6 +23,16 @@ attendanceCtrl.getAttendanceById = async (req, res) => {
     }
 }
 
+// get attendance by idAuthor
+attendanceCtrl.getAttendancesByIdAuthor = async (req, res) => {
+    try {
+        const attendance = await Attendance.find({ idAuthor: req.params.idAuthor })
+        res.json(attendance)
+    } catch (err) {
+        res.json({ message: err })
+    }
+}
+
 // Add attendance
 attendanceCtrl.addAttendance = async (req, res) => {
     const attendance = new Attendance(req.body)

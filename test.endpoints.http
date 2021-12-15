@@ -19,7 +19,8 @@ Content-Type: application/json
   "email": "rick.sanchez@rickandmorty.com",
   "password": "12345678",
   "password2": "12345678",
-  "role": "Admin"
+  "role": "Admin",
+  "salary": "21541"
 }
 
 ### /login
@@ -47,12 +48,16 @@ POST {{api}}/api/profile
 POST {{api}}/api/logout
 
 
+### get teachers
+GET {{api}}/api/teachers
+
+
 ### ATTENDANCE ENDPOINTS
 
 GET {{api}}/api/attendance/all
 
 ###
-GET {{api}}/api/attendance/
+GET {{api}}/api/attendance/61b8efece89b05221c56a29b
 
 
 ### Add Attendance
@@ -66,6 +71,9 @@ Content-Type: application/json
   "students": "34",
   "difficulties": "Holiday"
 }
+
+###
+GET {{api}}/api/attendance/author/619bcc81aba39633506b7acc
 
 ### PROGRAM ENDPOINTS
 
@@ -103,5 +111,6 @@ Content-Type: application/json
   "name": "Técnicas de pruebas de software",
   "code": "750105M",
   "intensity": "4",
-  "program": "2711"
+  "program": "2711",
+  "schedule": "Lunes 8:00 - 10:00"
 }

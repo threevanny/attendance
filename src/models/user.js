@@ -35,6 +35,9 @@ const userSchema = mongoose.Schema({
   },
   role: {
     type: String
+  },
+  salary: {
+    type: String
   }
 })
 

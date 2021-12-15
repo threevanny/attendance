@@ -91,4 +91,13 @@ authCtrl.getUser = async (req, res,) => {
   })
 }
 
+//Get all users with role teacher
+authCtrl.getTeachers = async (req, res)=> {
+  const limit = 15
+  await User.find({role: 'teacher'}, (err, docs) => {
+      if (err) console.error("Error getting users!", err)
+      else res.json(docs)
+  }).limit(limit)
+}
+
 module.exports = authCtrl
